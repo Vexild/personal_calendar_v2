@@ -1,12 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-//const cors = require('cors')
 const queries = require('./queries');
 const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
-
-
 require('dotenv').config();
 
 // CSRF middleware
