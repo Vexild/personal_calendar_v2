@@ -100,6 +100,23 @@ app.get('/getEventByDate/:date', function(req, res){
   })
 })
 
+app.get('/getEventById/:id', function(req, res){
+  const query = queries.getByIdQuery(req.params.id)
+  pool.query(query, (error, results)=>{
+    if(error){
+      throw error;
+    }
+    else if(results.rows == ""){
+      console.log("Its empty")
+      res.status(404).send()
+      return;
+    }
+    else{
+      res.json(results.rows)
+    }
+  })
+})
+
 // PUT
 app.put('/updateEvent/:id', function (req, res) {
     //check for the name
@@ -159,10 +176,10 @@ app.put('/updateEvent/:id', function (req, res) {
 })
 
 // DELETE EVENT
-app.delete('/deleteEvent/:name', async (req, res)  =>{
+app.delete('/deleteEvent/:id', async (req, res)  =>{
     // check
-    var name = req.params.name
-    const query = queries.getByNameQuery(name)
+    var id = req.params.id
+    const query = queries.getByIdQuery(id)
     pool.query(query, (error, results)=>{
       if(error){
         throw error;
@@ -173,7 +190,7 @@ app.delete('/deleteEvent/:name', async (req, res)  =>{
         return;
       }
       else{
-        var deletingQuery = queries.deleteByNameQuery(name)
+        var deletingQuery = queries.deleteByIdQuery(id)
         console.log("Query is: ",deletingQuery)
         pool.query(deletingQuery), (error, results) => {
         if(error){

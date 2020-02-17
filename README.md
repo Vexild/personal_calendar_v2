@@ -34,3 +34,21 @@ To run with nodemon:
 npm run devStart
 ```
 Pretty usefull, recommend.
+
+## Endpoints
+/                       GET, root, returns a CSRF token.
+/getEvents              GET, returns all entries from the database. 
+/getEventByName/name    GET, returns entries with certain event name.
+/getEventByDate/date    GET, returns etries with certain starting date.
+/getEventById/id        GET, returns etries with certain id.
+/newEvent               POST, creates new calendar entry, requires JSON body with following form:
+```
+{
+	"eventName": "Kimble",
+	"starting_date": "15/02/2020 16:00",
+	"ending_date": "15/02/2020 18:00"
+}
+```
+NOTE: ending_date is not mandatory
+/updateEvent/id         PUT, updates row selected by ID. This includes a checking before executing. If given ID does not exist, response returns 404 status.
+/deleteEvent/is       DELETE, deletes event with given ID. This includes checking before executing. If given ID does not exist, response returns 404 status.

@@ -41,9 +41,17 @@ getByDateQuery: function (a){
   return query;
   },
 
-deleteByNameQuery: function(a){
+getByIdQuery: function(a){
   const query = {
-    text : 'DELETE FROM calendar WHERE event_name = $1',
+    text : "SELECT * FROM calendar WHERE id = $1",
+    values: [a]
+  }
+  return query;
+},
+
+deleteByIdQuery: function(a){
+  const query = {
+    text : 'DELETE FROM calendar WHERE id = $1',
     values: [a]
   }
   return query;
