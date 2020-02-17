@@ -37,10 +37,15 @@ Pretty usefull, recommend.
 
 ## Endpoints
 /                       GET, root, returns a CSRF token.
-/getEvents              GET, returns all entries from the database. 
+
+/getEvents              GET, returns all entries from the database.
+
 /getEventByName/name    GET, returns entries with certain event name.
+
 /getEventByDate/date    GET, returns etries with certain starting date.
+
 /getEventById/id        GET, returns etries with certain id.
+
 /newEvent               POST, creates new calendar entry, requires JSON body with following form:
 ```
 {
