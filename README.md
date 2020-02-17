@@ -56,4 +56,5 @@ Pretty usefull, recommend.
 ```
 NOTE: ending_date is not mandatory
 /updateEvent/id         PUT, updates row selected by ID. This includes a checking before executing. If given ID does not exist, response returns 404 status.
+
 /deleteEvent/is       DELETE, deletes event with given ID. This includes checking before executing. If given ID does not exist, response returns 404 status.
