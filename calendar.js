@@ -29,19 +29,19 @@ app.use(
 )
 app.use(cookieParser());
 app.use(csrfProtection);
-/*
+
+
 app.use(function(err, req, res, next) {
   if (err.code !== 'EBADCSRFTOKEN') return next(err);
-  res.status(403).json({"error": "session has expired or tampered with"});
+  res.status(403).json({"error": "Error with token"});
 });
-*/
+
 
 // ROOT
 app.get('/', function (req, res) {
- // res.cookie('AccessToken', 'NodeApiAuthTokenName',  { httpOnly: true, expires: 0 });
-  //res.send('Welcome to my calendar<br><br>This builds focus was to swritch from mongoDB to PostgreSQL<br>Commands:<br>/getEvents<br>/newEvent (this takes in a json that has "eventName", "starting_date" and "ending_date")<br>/getEventByName<br>/getEventByDate (dateformat: dd/mm/yyyy)');
-  
-  //res.send(req.csrfToken())
+  console.log(req.sessionID)
+  sess = req.session;
+  sess.user;
   res.cookie('XSRF-TOKEN', req.csrfToken());
   res.send(req.csrfToken())
 
@@ -67,9 +67,7 @@ app.post('/newEvent', function(req, res) {
       throw error;
     }
   };
-  //res.send(name+" added!");
   res.status(200).send()
-
 })  
 
 // GET EVENT BY NAME
@@ -192,7 +190,6 @@ app.delete('/deleteEvent/:name', async (req, res)  =>{
     })
   })
 
-// we set app to localhost:3000
 app.listen(3000, function () {
   console.log('Calendar app listening on port 3000!');
 });
