@@ -23,7 +23,7 @@ DB_USER=pgUserName
 DB_PASSWORD=pgPassWord
 DB_HOST=IP
 DB_PORT=PORT
-DB_DATABASE=pgDmName
+DB_DATABASE=pgDBName
 ```
 Note for Windows user: pg will try to use Windows username as default username if .env file is not found. Make sure you install ```dotenv``` and fill the .env file correctly
 
