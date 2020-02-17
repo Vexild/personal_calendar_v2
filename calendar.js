@@ -39,12 +39,8 @@ app.use(function(err, req, res, next) {
 
 // ROOT
 app.get('/', function (req, res) {
-  console.log(req.sessionID)
-  sess = req.session;
-  sess.user;
   res.cookie('XSRF-TOKEN', req.csrfToken());
   res.send(req.csrfToken())
-
 });
 
 // get all events
