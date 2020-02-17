@@ -13,10 +13,8 @@ npm i nodemon body-parser cookie-parser csurf dotenv express pg
 
 ```
 
-Install PostgreSQL:
-```
-https://www.postgresql.org/download/
-```
+Install PostgreSQL: https://www.postgresql.org/download/
+
 Setup Postgres Db with username, password, port and database name of your choice.
 You need an .env file to include all connection info for Postgress. Add .env file with following content:
 ```
