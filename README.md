@@ -27,3 +27,10 @@ DB_PORT=PORT
 DB_DATABASE=pgDmName
 ```
 Note for Windows user: pg will try to use Windows username as default username if .env file is not found. Make sure you install ```dotenv``` and fill the .env file correctly
+
+To ease the development used nodemon to automatically restart my nodeJs whenever I saved my .js files.
+To run with nodemon:
+```
+npm run devStart
+```
+Pretty usefull, recommend.
