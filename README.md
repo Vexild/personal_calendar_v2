@@ -9,7 +9,7 @@ https://nodejs.org/en/download/
 
 Install all necessary libraries:
 ```
-npm i nodemon body-parser cookie-parser csurf dotenv express express-session pg 
+npm i nodemon body-parser cookie-parser csurf dotenv express pg 
 
 ```
 
